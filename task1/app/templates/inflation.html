@@ -1,0 +1,54 @@
+<!DOCTYPE html>{% load static %}
+{% load my_filters %}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Инфляция в России</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+{% block content %}
+<div class="row">
+    <h1 class="col s12">Инфляция в России</h1>
+    <div class="col s12 m8">
+        <table>
+            <tr>
+                {% for col_name in headers %}
+                    <th>{{ col_name }}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+                {% for item in inflation_data %}
+                <tr>
+                    <td>{{ item.Год }}</td>
+                    <td bgcolor={{item.Янв|colors}}>{{ item.Янв }}</td>
+                    <td bgcolor={{item.Фев|colors}}>{{ item.Фев }}</td>
+                    <td bgcolor={{item.Мар|colors}}>{{ item.Мар }}</td>
+                    <td bgcolor={{item.Апр|colors}}>{{ item.Апр }}</td>
+                    <td bgcolor={{item.Май|colors}}>{{ item.Май }}</td>
+                    <td bgcolor={{item.Июн|colors}}>{{ item.Июн }}</td>
+                    <td bgcolor={{item.Июл|colors}}>{{ item.Июл }}</td>
+                    <td bgcolor={{item.Авг|colors}}>{{ item.Авг }}</td>
+                    <td bgcolor={{item.Сен|colors}}>{{ item.Сен }}</td>
+                    <td bgcolor={{item.Окт|colors}}>{{ item.Окт }}</td>
+                    <td bgcolor={{item.Ноя|colors}}>{{ item.Ноя }}</td>
+                    <td bgcolor={{item.Дек|colors}}>{{ item.Дек }}</td>
+                    <td bgcolor="#696969">{{ item.Суммарная }}</td>
+                </tr>
+                {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>
