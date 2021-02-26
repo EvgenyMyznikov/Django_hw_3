@@ -9,11 +9,11 @@ def colors(value: str) -> str:
 		value = float(value)
 		if value < 0:
 			color = 'darkgreen'
-		elif value <= 0.99:
+		elif value < 1:
 			color = 'white'
-		elif 1 <= value < 1.99:
+		elif 1 <= value < 2:
 			color = 'Pink'
-		elif 2 <= value < 4.99:
+		elif 2 <= value < 5:
 			color = 'LightCoral'
 		elif value >= 5:
 			color = 'red'
